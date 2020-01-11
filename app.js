@@ -4,7 +4,7 @@ const forecast = require('./utlis/forecast')
 
 const address = process.argv[2]
 if(!address){
-    console.log('please provide an address')
+    console.log('please provide an address to see weather')
 }else{
 
     geocode(address,(error,data)=>{
