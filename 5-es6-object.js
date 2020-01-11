@@ -1,3 +1,5 @@
+// object porperty shorthand
+
 const name = 'ebrahim'
 const userAge = 18
 
@@ -8,3 +10,8 @@ const user = {
     location:'india,tamilnadu,chennai'
 }
 console.log(user)
+
+
+
+
+
