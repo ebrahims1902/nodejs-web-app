@@ -3,9 +3,15 @@ const express = require('express')
 
 const app = express()
 
+// Define paths for Express config
 const publicDirectoryPath  = path.join(__dirname, '../public')
-app.set('view engine','hbs')
+const viewspath = path.join(__dirname,'../templates')
 
+// Setup handelbars engines and view  location
+app.set('view engine','hbs')
+app.set('views',viewspath)
+
+// Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
 
