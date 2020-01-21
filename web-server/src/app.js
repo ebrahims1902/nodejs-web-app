@@ -41,6 +41,27 @@ app.get('/help',(req,res)=>{
         name : 'Ebrahim'
     })
 })
+app.get('/weather',(req, res)=>{
+    res.send({
+        title : 'weather',
+        name : 'Ebrahim'
+    })
+})
+
+app.get('/help/*',(req,res)=>{
+    res.render('404',{
+        title : '404',
+        name : 'Ebrahim',
+        errorMessage : 'Help article not found'
+    })
+})
+app.get('*',(req,res)=>{
+    res.render('404',{
+        title : '404',
+        name : 'Ebrahim',
+        errorMessage : 'error page occer'
+    })
+})
 
 app.listen(8080,()=>{
     console.log('server up on port 8080')
