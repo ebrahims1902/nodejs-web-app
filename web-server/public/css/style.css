@@ -1,12 +1,31 @@
+body{
+    color: #333333;
+    font-family: Arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+footer{
+    color: #888888;
+    margin-top: 16px;
+    border-top: 1px solid #eeeeee;
+    padding: 16px 0;
+
+}
+
+header{
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
 h1{
-    color : blue
+    font-size: 64px;
+    margin-bottom: 16px;
 }
-img{
-    width : 250px
-}
-p{
-    color: crimson
-}
-h2{
-    color: indigo;
+
+header a{
+    margin-right: 16px;
+    color: #888888;
+    text-decoration: none;
 }
