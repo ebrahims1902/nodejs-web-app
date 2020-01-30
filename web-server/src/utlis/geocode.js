@@ -11,7 +11,8 @@ const geocode = (address,callback) =>{
         
         else if(body.features.length === 0){
             callback('unable to find location. try another search',undefined)
-        }else{
+        }
+        else{
             callback(undefined,{
                 latitude:body.features[0].center[1],
                 longitude:body.features[0].center[0],
@@ -20,5 +21,8 @@ const geocode = (address,callback) =>{
         }
     })
 }
+console.log('eee');
+
+
 
 module.exports = geocode

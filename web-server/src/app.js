@@ -1,7 +1,8 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-
+const geocode = require('./utlis/geocode')
+const forecast = require('./utlis/forecast')
 
 const app = express()
 
@@ -42,9 +43,43 @@ app.get('/help',(req,res)=>{
     })
 })
 app.get('/weather',(req, res)=>{
+    if(!req.query.address){
+        res.send({
+            error: 'must provide an address'
+        })
+       
+    }
+    
+
+    geocode(req.query.address,async function(error,{latitude, longitude, location}){
+        if(error){
+            return res.send({error})    
+        }
+
+       let data =  await forecast(latitude, longitude)
+            
+            console.log(">>>>>>>>>>>>",data)
+            res.send({
+                forecast:data,
+                location,
+                address:req.query.address
+            })
+    
+    })
+})
+
+
+app.get('/products',(req,res)=>{
+
+    if(!req.query.search){
+        return res.send({
+            error :'you must provid a search'
+        })
+    }
+
+    console.log(req.query.search)
     res.send({
-        title : 'weather',
-        name : 'Ebrahim'
+        products : []
     })
 })
 
