@@ -51,19 +51,31 @@ app.get('/weather',(req, res)=>{
     }
     
 
-    geocode(req.query.address,async function(error,{latitude, longitude, location}){
+    geocode(req.query.address,async function(error,{latitude, longitude, location} = {}){
         if(error){
             return res.send({error})    
         }
 
-       let data =  await forecast(latitude, longitude)
-            
-            console.log(">>>>>>>>>>>>",data)
+        
+        forecast(latitude, longitude, (error, forecastData)=>{
+            if(error){
+                return res.send({ error })
+            }
             res.send({
-                forecast:data,
+                forecast:forecastData,
                 location,
                 address:req.query.address
             })
+        })
+
+    //    let data =  await forecast(latitude, longitude)
+            
+    //         console.log(">>>>>>>>>>>>",data)
+    //         res.send({
+    //             forecast:data,
+    //             location,
+    //             address:req.query.address
+    //         })
     
     })
 })

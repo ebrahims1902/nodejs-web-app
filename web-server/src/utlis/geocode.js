@@ -21,7 +21,7 @@ const geocode = (address,callback) =>{
         }
     })
 }
-console.log('eee');
+
 
 
 
