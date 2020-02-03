@@ -70,13 +70,15 @@ app.get('/weather',(req, res)=>{
 
     //    let data =  await forecast(latitude, longitude)
             
-    //         console.log(">>>>>>>>>>>>",data)
+        
+    //     console.log(">>>>>>>>>>>>",data)
     //         res.send({
     //             forecast:data,
     //             location,
     //             address:req.query.address
     //         })
-    
+
+
     })
 })
 
