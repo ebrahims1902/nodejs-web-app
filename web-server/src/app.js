@@ -57,26 +57,26 @@ app.get('/weather',(req, res)=>{
         }
 
         
-        forecast(latitude, longitude, (error, forecastData)=>{
-            if(error){
-                return res.send({ error })
-            }
+        // forecast(latitude, longitude, (error, forecastData)=>{
+        //     if(error){
+        //         return res.send({ error })
+        //     }
+        //     res.send({
+        //         forecast:forecastData,
+        //         location,
+        //         address:req.query.address
+        //     })
+        // })
+
+       let data =  await forecast(latitude, longitude)
+            
+        
+        console.log(">>>>>>>>>>>>",data)
             res.send({
-                forecast:forecastData,
+                forecast:data,
                 location,
                 address:req.query.address
             })
-        })
-
-    //    let data =  await forecast(latitude, longitude)
-            
-        
-    //     console.log(">>>>>>>>>>>>",data)
-    //         res.send({
-    //             forecast:data,
-    //             location,
-    //             address:req.query.address
-    //         })
 
 
     })
