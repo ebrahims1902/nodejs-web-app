@@ -5,7 +5,7 @@ const geocode = require('./utlis/geocode')
 const forecast = require('./utlis/forecast')
 
 const app = express()
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath  = path.join(__dirname, '../public')
@@ -50,7 +50,7 @@ app.get('/weather',(req, res)=>{
         })
        
     }
-    console.log('Ebrahim')
+    
 
     geocode(req.query.address,async function(error,{latitude, longitude, location} = {}){
         if(error){
