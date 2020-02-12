@@ -50,7 +50,7 @@ app.get('/weather',(req, res)=>{
         })
        
     }
-    
+    console.log('Ebrahim')
 
     geocode(req.query.address,async function(error,{latitude, longitude, location} = {}){
         if(error){
@@ -71,7 +71,7 @@ app.get('/weather',(req, res)=>{
 
        let data =  await forecast(latitude, longitude)
             
-        
+     
         console.log(">>>>>>>>>>>>",data)
             res.send({
                 forecast:data,
