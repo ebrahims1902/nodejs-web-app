@@ -9,7 +9,7 @@ function forecast(latitude, longitude) {
             }else if (body.error){
                 reject('unable to find location',undefined)
             }else{
-                return resolve(body.daily.data[0].summary + 'it is currently ' + body.currently.temperature + ' farenheit. there is a '+ body.currently.precipProbability + ' % chance of rain.')   
+                return resolve(body.daily.data[0].summary + 'it is currently ' + body.currently.temperature + ' farenheit.This high today is ' + body.daily.data[0].temperatureHigh + ' with a low of ' + body.daily.data[0].temperatureLow + '. there is a '+ body.currently.precipProbability + ' % chance of rain.')   
             }
         })
     })
@@ -23,7 +23,7 @@ function forecast(latitude, longitude) {
 //         }else if (body.error){
 //             callback('unable to find location',undefined)
 //         }else{
-//             callback(console.log(body.daily.data[0].summary + 'it is currently ' + body.currently.temperature + ' farenheit. there is a '+ body.currently.precipProbability + ' % chance of rain.'))   
+//             callback(console.log(body.daily.data[0].summary + 'it is currently ' + body.currently.temperature + ' farenheit.this is high today is' + body.daily.data[0].temperatureHigh + 'with a low of' + body.daily.data[0].temperatureLow + '. there is a '+ body.currently.precipProbability + ' % chance of rain.'))   
 //         }
 //     })
     
