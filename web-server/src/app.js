@@ -32,7 +32,7 @@ app.get('',(req,res)=>{
 })
 app.get('/about',(req,res)=>{
     res.render('about',{
-        title : 'my photo',
+        title : 'About me',
         name : 'Ebrahim'
     })
 })
