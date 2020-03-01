@@ -58,7 +58,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error,client) => {
     //     console.log(result.ops)
     // })
 
-            // # Reading Documents...
+             // # Reading Documents...
 
     // db.collection('users').findOne({ _id : new ObjectID("5e5131bc444ac07f9fc813ff")}, (error, user)=>{
     //     if(error){
@@ -71,14 +71,28 @@ MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error,client) => {
     //     console.log(user)
     // })
     
-    db.collection('task').findOne({ _id:new ObjectID("5e513378bd714501370d2e21") },(error,tasks) => {
-        if(error){
-            return console.log('Unable to find the Document id')
-        }
-        console.log(tasks)
-    })
-    db.collection('task').find({ completed:true }).toArray((error,tasks)=>{
-        console.log(tasks)
-    })
+    // db.collection('task').findOne({ _id:new ObjectID("5e513378bd714501370d2e21") },(error,tasks) => {
+    //     if(error){
+    //         return console.log('Unable to find the Document id')
+    //     }
+    //     console.log(tasks)
+    // })
+    // db.collection('task').find({ completed:true }).toArray((error,tasks)=>{
+    //     console.log(tasks)
+    // })
 
+                // #Updating Documents...
+
+    const updatePromise= db.collection('users').updateOne({
+        _id : new ObjectID("5e5131bc444ac07f9fc813ff")
+    },{
+        $set:{
+            Name : 'Mike'
+        }
+    })
+    updatePromise.then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })            
 })
