@@ -3,7 +3,7 @@
 const {MongoClient,ObjectID} = require('mongodb')
 
 
-const connectionURL = 'mongodb://127.0.0.1:27017'
+const connectionURL = 'mongodb://192.168.0.108:27017'
 const databaseName = 'task-manager'
 
 MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error,client) => {
@@ -14,49 +14,49 @@ MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error,client) => {
 
                 // #Creating Documents...
 
-    // db.collection('users').insertOne({
-    //     Name : 'Ebrahim',
-    //     Age : 18
-    // },(error,result)=>{
-    //     if(error){
-    //         return console.log('Unable to insert user')
-    //     }
-    //     console.log(result.ops)
-    // })
+    db.collection('users').insertOne({
+        Name : 'Ebrahim',
+        Age : 18
+    },(error,result)=>{
+        if(error){
+            return console.log('Unable to insert user')
+        }
+        console.log(result.ops)
+    })
 
-    // db.collection('users').insertMany([
-    //     {
-    //         Name : 'Ebrahim',
-    //         Age : 18
-    //     },
-    //     {
-    //         Name : 'Bilal',
-    //         Age : 24
-    //     }
-    // ],(error, result) => {
-    //     if(error){
-    //     return console.log('Unable to insert document')
-    //     }
-    //     console.log(result.ops)
-    // })
+    db.collection('users').insertMany([
+        {
+            Name : 'Ebrahim',
+            Age : 18
+        },
+        {
+            Name : 'Bilal',
+            Age : 24
+        }
+    ],(error, result) => {
+        if(error){
+        return console.log('Unable to insert document')
+        }
+        console.log(result.ops)
+    })
 
-    // db.collection('task').insertMany([
-    //     {
-    //         description : 'clean the house',
-    //         completed : true
-    //     },{
-    //         description :'house rent',
-    //         completed : false
-    //     },{
-    //         description :'Bike service',
-    //         completed:false
-    //     }
-    // ],(error, result) => {
-    //     if(error){
-    //         return console.log('Unable to insert document')
-    //     }
-    //     console.log(result.ops)
-    // })
+    db.collection('task').insertMany([
+        {
+            description : 'clean the house',
+            completed : true
+        },{
+            description :'house rent',
+            completed : false
+        },{
+            description :'Bike service',
+            completed:false
+        }
+    ],(error, result) => {
+        if(error){
+            return console.log('Unable to insert document')
+        }
+        console.log(result.ops)
+    })
 
              // # Reading Documents...
 
@@ -120,11 +120,11 @@ MongoClient.connect(connectionURL, { useNewUrlParser:true }, (error,client) => {
     //    console.log(error)
     // })
 
-    db.collection('task').deleteOne({
-        description : "clean the house"
-    }).then((result)=>{
-        console.log(result)
-    }).catch((error)=>{
-        console.log(error)
-    })
+    // db.collection('task').deleteOne({
+    //     description : "clean the house"
+    // }).then((result)=>{
+    //     console.log(result)
+    // }).catch((error)=>{
+    //     console.log(error)
+    // })
 })

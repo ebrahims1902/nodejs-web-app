@@ -65,6 +65,22 @@ app.get('tasks',(req,res) => {
 })
 
 
+app.get('/tasks/:id',(req,res)=>{
+    const _id = req.params.id
+
+    Task.findById(_id).then((task)=>{
+        if(!task){
+            return res.status(404).send()
+        }
+        else{
+            res.send(task)
+        }
+    }).catch((e)=>{
+        res.status(500).send()
+    })
+
+})
+
 app.listen(port,()=>{
     console.log('server up on port ' + port)
 })
