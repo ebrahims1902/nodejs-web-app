@@ -10,13 +10,15 @@
 //     console.log('Error!!!  ',error)
 // })
 
+
 const add = (a,b) => {
     return new Promise((resole,reject)=>{
         setTimeout(()=>{
-            resole(a + b)
+            resole(a+b)
         },2000)
-    })
+})
 }
+
 
 // add(1,2).then((sum)=>{
 //     console.log(sum)
