@@ -23,6 +23,7 @@ const userSchema = new mongoose.Schema({
         }
     },
     password:{
+
         type:String,
         required:true,
         minlength:7,
@@ -32,13 +33,20 @@ const userSchema = new mongoose.Schema({
                 throw new Error('password can not contin "password"')
             }
         }
+
     },tokens :[{
+
         token :{
             type : String,
             required : true
         }
-    }],
-    age:{
+
+    }],avatar:{
+
+        type : Buffer
+
+    },age:{
+
         type:Number,
         default:0,
         validate(value){
@@ -46,6 +54,7 @@ const userSchema = new mongoose.Schema({
                 throw new Error('Age must be in positive.')
             }
         }
+
     }
 
 },{
@@ -64,6 +73,8 @@ userSchema.methods.toJSON = function (){
 
     delete userObject.password
     delete userObject.tokens
+    delete userObject.avatar
+    
     return userObject
 }
 
